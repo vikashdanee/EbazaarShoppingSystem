@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action = "${pageContext.servletContext.contextPath}/saveproduct" method = 'post'>
+	Cat Id : <input type="text" value = "${catId}" name="catId"><br>
+  Catalog  : <input type="text" value = "${catName}" name="catName"><br>
+  Product Name  : <input type="text" name="pName"><br>
+  Manufacturer Date  : <input type="text" name="mDate"><br>
+  Number in stock  : <input type="text" name="num"><br>
+  Unit Price : <input type="text" name="price"><br>
+  Description  : <input type="text" name="des"><br> <br> <br>
+ 
+  <input type="submit" value="Save" name = "Save">
+  <input type="submit" value="Clear" name = "Clear">
+</form>
+</body>
+</html>

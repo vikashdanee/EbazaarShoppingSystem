@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/com.springsource.sts.ide.tomcat.runtimeTarget/Pivotal tc Server Developer Edition (Runtime) v3.1">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/creditVerifSystem.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/jess.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/junit.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/mysql-connector-java-5.1.20-bin.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/rulesencoding.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/rulesengine.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.aop-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.asm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.aspects-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.beans-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.context.support-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.context-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.core-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.expression-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.instrument.tomcat-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.instrument-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.jdbc-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.jms-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.orm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.oxm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.test-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.transaction-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.web.portlet-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.web.servlet-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.web.struts-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/spring/org.springframework.web-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_66"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/aopalliance.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/asm.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/cglib-nodep-2.2.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/commons-pool-1.6.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/javaee-api-6.0.jar"/>
+	<classpathentry kind="lib" path="E:/vikash/Maharishi University/Mum Assignment/software eng/E-Bazaar/code/externalJars/other/mockito-all-1.9.0.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

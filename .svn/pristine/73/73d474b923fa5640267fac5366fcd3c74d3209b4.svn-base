@@ -1,0 +1,61 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Maintain Product</title>
+<script>
+
+function getDetails()
+ {
+    var userSelection = document.getElementById("catid").value;
+    var text = document.getElementById("catid").options[document.getElementById('catid').selectedIndex].text;
+     //alert(userSelection);
+   	window.location = 'productlist?catId='+userSelection+'&name='+text;
+}
+</script>
+</head>
+<body>
+	<select id="catid" name="catid" onChange="getDetails()">
+	    <c:forEach var="catalogPres" items="${catalogs}">
+	     <option value= "${catalogPres.id}">${catalogPres.name}</option>
+	    </c:forEach>
+	</select>
+
+	<br>
+	<br>
+	<b>Product List</b>
+	<br>
+	<table border="1">
+	<tr>
+	<th>Name</th>
+	<th>Quantity</th>
+	<th>MDate</th>
+	<th>UnitPrice</th>
+	</tr>
+		<c:forEach var="productPres" items="${products}">
+		<tr>
+			
+			<td>${productPres.getName() }</td>
+			
+			<td>${productPres.getQuantityAvail() }</td>
+		
+			
+			<td>${productPres.getMfg() }</td>
+		
+			
+			<td>${productPres.getUnitPrice() }</td>
+		</tr>
+    	</c:forEach>
+	</table>
+	<br>
+	<input type="submit" value="Add Product" onclick="window.location='${pageContext.servletContext.contextPath}/addnewproduct?id=${selectedId}&value=${name}'">
+  	<input type="submit" value="clear" name = "Clear">
+</body>
+</html>
+<script>
+document.getElementById("catid").value = "${selectedId}";
+//document.getElementById('catid').selectedIndex = 0;
+</script>

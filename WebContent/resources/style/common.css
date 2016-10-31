@@ -1,0 +1,10 @@
+#message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+#messageData {
+    margin: 0 auto;
+}
+h2 { color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }

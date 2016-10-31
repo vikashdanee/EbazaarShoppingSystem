@@ -1,0 +1,223 @@
+package presentation.control;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import business.BusinessConstants;
+import business.SessionCache;
+import business.customersubsystem.AddressImpl;
+import business.customersubsystem.CustomerSubsystemFacade;
+import business.exceptions.BackendException;
+import business.externalinterfaces.Address;
+import business.externalinterfaces.CartItem;
+import business.externalinterfaces.CustomerProfile;
+import business.externalinterfaces.CustomerSubsystem;
+import business.externalinterfaces.OrderSubsystem;
+import business.ordersubsystem.OrderSubsystemFacade;
+import business.util.DataUtil;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import presentation.data.AddressPres;
+import presentation.data.BrowseSelectData;
+import presentation.data.CartItemPres;
+import presentation.data.CheckoutData;
+import presentation.data.CustomerPres;
+import presentation.data.DefaultData;
+import presentation.gui.GuiConstants;
+import presentation.util.Util;
+
+@Controller
+public class CheckoutUIControl {
+
+	/*@RequestMapping(value = "/shippingbilling", method = RequestMethod.GET)
+	public String proceedFromCartToShipBill(@RequestParam(value = "id", required = false) String id,
+			ModelMap modelMap) {
+		System.out.println("kkkk"+ id);
+		
+		if (!SessionCache.getInstance().containsKey(BusinessConstants.CUSTOMER)) {
+			return "redirect:/login/callback/shippingbilling";
+		} else {
+			if (id != null) {
+
+				System.out.println("proceedFromCartToShipBill selected address");
+				try {
+					System.out.println("aaa");
+					//List<Address> address = DataUtil.readCustFromCache().getAllAddresses();
+					//System.out.println(address);
+					Address add = DataUtil.readCustFromCache().getAllAddresses().stream()
+							.filter(a -> (a.getId()) ==Integer.parseInt(id)).findFirst().get();
+					
+					AddressPres addresspress = Util.addressToAddressPres(add);
+					
+					modelMap.put("shippingAddress", addresspress);
+					System.out.println("bbbb");
+					System.out.println(addresspress);
+				} catch (BackendException e) {
+					e.printStackTrace();
+				}
+
+				return "shippingbilling";
+
+			} else {
+
+				System.out.println("proceedFromCartToShipBill");
+				CheckoutData data = CheckoutData.INSTANCE;
+				// CustomerProfile custProfile = data.getCustomerProfile();
+				Address defaultShipAddress = data.getDefaultShippingData();
+				AddressPres uiShipAddress = new AddressPres();
+				AddressPres uiBillAddress = new AddressPres();
+				Address defaultBillAddress = data.getDefaultBillingData();
+				uiBillAddress.setAddress(defaultBillAddress);
+				uiShipAddress.setAddress(defaultShipAddress);
+				modelMap.addAttribute("shippingAddress", uiShipAddress);
+				modelMap.addAttribute("billingAddress", uiBillAddress);
+
+				return "shippingbilling";
+			}
+		}
+
+	}*/
+
+	@RequestMapping(value = "/shippingbilling", method = RequestMethod.GET)
+	public String proceedFromCartToShipBill(@RequestParam(value = "id", required = false) String id,
+			ModelMap modelMap) {
+		System.out.println("kkkk"+ id);
+		
+		if (!SessionCache.getInstance().containsKey(BusinessConstants.CUSTOMER)) {
+			return "redirect:/login/callback/shippingbilling";
+		} else {
+			if (id != null) {
+
+				System.out.println("proceedFromCartToShipBill selected address");
+				try {
+					System.out.println("aaa");
+					//List<Address> address = DataUtil.readCustFromCache().getAllAddresses();
+					//System.out.println(address);
+					Address add = DataUtil.readCustFromCache().getAllAddresses().stream()
+							.filter(a -> (a.getId()) ==Integer.parseInt(id)).findFirst().get();
+					
+					AddressPres addresspress = Util.addressToAddressPres(add);
+					
+					modelMap.put("shippingAddress", addresspress);
+					System.out.println("bbbb");
+					System.out.println(addresspress);
+				} catch (BackendException e) {
+					e.printStackTrace();
+				}
+
+				return "shippingbilling";
+
+			} else {
+
+				System.out.println("proceedFromCartToShipBill");
+				CheckoutData data = CheckoutData.INSTANCE;
+				
+				//CustomerProfile custProfile = data.getCustomerProfile();
+				
+				Address defaultShipAddress = data.getDefaultShippingData();
+				Address defaultBillAddress = data.getDefaultBillingData();
+				
+				AddressPres uiShipAddress = Util.addressToAddressPres(defaultShipAddress);
+				AddressPres uiBillAddress = Util.addressToAddressPres(defaultBillAddress);
+				
+				//uiBillAddress.setAddress(defaultBillAddress);
+				//uiShipAddress.setAddress(defaultShipAddress);
+				
+				modelMap.addAttribute("shippingAddress", uiShipAddress);
+				modelMap.addAttribute("billingAddress", uiBillAddress);
+
+				return "shippingbilling";
+			}
+		}
+
+	}
+
+
+	@RequestMapping(value = "/selectbilladdress", method = RequestMethod.GET)
+	public String selectbillAddress(ModelMap modelMap) {
+		modelMap.addAttribute("addressList", DefaultData.ADDRESSES_ON_FILE);
+		modelMap.addAttribute("title", "Billing Address");
+		return "selectaddress";
+	}
+
+	/*@RequestMapping(value = "/selectshipaddress", method = RequestMethod.GET)
+	public String selectshipaddress(ModelMap modelMap) {
+		CustomerSubsystem css = DataUtil.readCustFromCache();
+		List<AddressPres> addressSelected;
+
+		try {
+			//addressSelected = css.getAllAddresses();
+			addressSelected = Util.addressToAddressPresList(css.getAllAddresses());
+			modelMap.addAttribute("addressList", addressSelected);
+			System.out.println("address all " + addressSelected);
+		} catch (BackendException e) {
+			e.printStackTrace();
+		}
+		return "selectaddress";
+	}
+*/
+	@RequestMapping(value="/selectshipaddress",method=RequestMethod.GET)
+	public String selectshipAddress(ModelMap modelMap){
+		CheckoutData data = CheckoutData.INSTANCE;
+		try {
+			List<Address> addressSelected = new ArrayList<>();
+			System.out.println("here");
+			List<CustomerPres> addressList=data.getCustomerShipAddresses();
+			System.out.println("now");
+			
+			for(CustomerPres cp:addressList){
+				addressSelected.add(cp.getAddress());
+				System.out.println(cp);
+			}
+			modelMap.addAttribute("addressList",addressSelected);
+		} catch (BackendException e) {
+			e.printStackTrace();
+		}
+		//modelMap.addAttribute("addressList",DefaultData.ADDRESSES_ON_FILE);
+		modelMap.addAttribute("title","Shipping Address");
+		return "selectaddress";
+	}
+	
+	@RequestMapping(value = "/payment", method = RequestMethod.POST)
+	public String proceedToPayment(@RequestParam Map<String, String> allRequestParams, ModelMap modelMap) {
+		System.out.println("submitAddress:: shipping address " + allRequestParams.get("shippingStreet"));
+		System.out.println("submitAddress:: billing address " + allRequestParams.get("billingStreet"));
+
+		CustomerSubsystem css = (CustomerSubsystem) SessionCache.getInstance().get(BusinessConstants.CUSTOMER);
+
+		System.out.println("Customer ID : " + css.getCustomerProfile().getCustId());
+		modelMap.addAttribute("ccard", DefaultData.DEFAULT_PAYMENT_INFO);
+		return "payment";
+	}
+
+	@RequestMapping(value = "/terms", method = RequestMethod.POST)
+	public String proceedToTermsAndCondition(ModelMap modelMap) {
+		return "redirect:/terms";
+	}
+
+	@RequestMapping(value = "/finalorder")
+	public String proceedToFinalOrder(ModelMap modelMap) {
+		List<CartItemPres> finalOrder = BrowseSelectData.INSTANCE.getCartData2();
+		modelMap.addAttribute("finalOrders", finalOrder);
+		return "finalorder";
+	}
+
+	@RequestMapping(value = "terms", method = RequestMethod.GET)
+	public String proceedToTermsAndConditionget(ModelMap modelMap) {
+		modelMap.addAttribute("terms", GuiConstants.TERMS_MESSAGE);
+		return "termsncondition";
+	}
+
+	@RequestMapping(value = "successfull", method = RequestMethod.GET)
+	public String proceedToSuccessfullSubmission(ModelMap modelMap) {
+		return "successfull";
+	}
+
+}
